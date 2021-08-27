@@ -11,7 +11,7 @@ include 'conexion.php'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <LINK REL=StyleSheet HREF="style.css" TYPE="text/css" MEDIA=screen>
-    <title>TABLA 1</title>
+    <title>Atención Recibida</title>
 </head>
 <body>
 <header>
@@ -24,7 +24,7 @@ include 'conexion.php'
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">INICIO</a>
+                    <a class="nav-link active" aria-current="page" href="registros.php">INICIO</a>
                     </li>
                 </ul>
                 </div>
