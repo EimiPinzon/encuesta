@@ -9,7 +9,7 @@ include 'conexion.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <LINK REL=StyleSheet HREF="estilos.css" TYPE="text/css" MEDIA=screen>
+    <LINK REL=StyleSheet HREF="style.css" TYPE="text/css" MEDIA=screen>
     <title>TABLA 5</title>
 </head>
 <body>
@@ -25,34 +25,24 @@ include 'conexion.php';
                     <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php">INICIO</a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="registros.php">REGISTROS</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="tabla1.php">TABLA 1</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
+
                 </ul>
                 </div>
             </div>
         </nav>
     </header>
     <main>
-        <div class="container">
+        <div class="container contat5">
         <br><div class="row">
-                <div class="col-md-11">
-                    <h1 class="titulo1">RESULTADO ENCUESTA DE SATISFACCIÓN</h1>
+                <div class="col-md-8">
+                    <h1 class="titulo1">SOLUCIÓN A SU REQUERIMIENTO</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <br><br><table class="tabla2 table table-bordered">
                         <thead>
                             <tr class="titulot4">
-                            <th scope="col">ID</th>
-                            <th scope="col">PREGUNTA (Solución a su requerimiento)</th>
                             <th scope="col">RESPUESTA</th>
                             <th scope="col">EXT</th>
                             <th scope="col">TELEFONO</th>
@@ -62,15 +52,13 @@ include 'conexion.php';
 
                             <?php
                                 
-                                $traer ="SELECT * FROM `respuestas` WHERE `preguntas` = 2";
+                                $traer ="SELECT respuestas, ext, telefono, fecha FROM respuestas WHERE id =2 OR id =4;";
                                 $resultado =mysqli_query($conexion,$traer);
 
                                 while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                             
                                 <tbody>
                                     <tr>
-                                    <td><?php echo $mostrar['id']?></td>
-                                    <td><?php echo $mostrar['preguntas']?></td>
                                     <td><?php echo $mostrar['respuestas']?></td>
                                     <td><?php echo $mostrar['ext']?></td>
                                     <td><?php echo $mostrar['telefono']?></td>
@@ -79,6 +67,11 @@ include 'conexion.php';
                                 </tbody>
                             <?php } ?>
                     </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <button type="button" class="btn btn-light"><a href="reporte5.php">DESCARGAR</a></button>  
                 </div>
             </div>
         </div>
