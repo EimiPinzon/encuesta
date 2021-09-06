@@ -10,7 +10,7 @@ include 'conexion.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <LINK REL=StyleSheet HREF="style.css" TYPE="text/css" MEDIA=screen>
-    <title>Solución Requerimiento</title>
+    <title>Atención Recibida</title>
 </head>
 <body>
 <header>
@@ -31,18 +31,17 @@ include 'conexion.php';
         </nav>
     </header>
     <main>
-        <div class="container contat2">
-            <br><div class="row">
-                <div class="col-md-8">
-                    <h1 class="titulo1">SOLUCIÓN A SU REQUERIMIENTO</h1>
+        <div class="container contat4">
+        <br><div class="row">
+                <div class="col-md-7">
+                    <h1 class="titulo1">ATENCIÓN RECIBIDA</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <br><br><table class="tabla2 table table-bordered">
                         <thead>
                             <tr class="titulot4">
-                            <th scope="col">PREGUNTA (Solución a su requerimiento)</th>
                             <th scope="col">RESPUESTA</th>
                             <th scope="col">EXT</th>
                             <th scope="col">TELEFONO</th>
@@ -52,17 +51,16 @@ include 'conexion.php';
 
                             <?php
                                 
-                                $traer ="SELECT preguntas, respuestas, ext, telefono, fecha FROM respuestas WHERE id =2";
+                                $traer ="SELECT rp, ext, callerid, fecha FROM respuestas WHERE rp=1;";
                                 $resultado =mysqli_query($conexion,$traer);
 
                                 while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                             
                                 <tbody>
                                     <tr>
-                                    <td><?php echo $mostrar['preguntas']?></td>
-                                    <td><?php echo $mostrar['respuestas']?></td>
+                                    <td><?php echo $mostrar['rp']?></td>
                                     <td><?php echo $mostrar['ext']?></td>
-                                    <td><?php echo $mostrar['telefono']?></td>
+                                    <td><?php echo $mostrar['callerid']?></td>
                                     <td><?php echo $mostrar['fecha']?></td>
                                     </tr>
                                 </tbody>
@@ -72,7 +70,7 @@ include 'conexion.php';
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <button type="button"class="btn btn-light"><a href="reporte2.php">DESCARGAR</a></button>  
+                    <button type="button" class="btn btn-light"><a href="reporte2.php">DESCARGAR</a></button>  
                 </div>
             </div>
         </div>

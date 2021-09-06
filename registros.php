@@ -1,3 +1,6 @@
+<?php
+include 'conexion.php'
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,17 +42,26 @@
             <br><br><div class="row">
                 <div class="col-md-4">
 
-                    <table class="tabla1 table table-bordered">
+                    <table method="POST" class="tabla1 table table-bordered">
                             <thead>
                                 <tr class="titulot1">
-                                    <th  colspan="3" scope="col">PREGUNTA 1 (Atención recibida)</th>
+                                    <th  colspan="3" scope="col" id="pregunta1">PREGUNTA 1 (Atención recibida)</th>
                                 </tr>
+
+                                <?php
+                                    $traer ="SELECT COUNT(*) FROM respuestas WHERE pq = 1";
+                                    $resultado =mysqli_query($conexion,$traer);
+
+                                    while ($mostrar=mysqli_fetch_array($resultado)){ ?>
+
+
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td  colspan="3"><a href="tabla4.php"> Total: 2</a></td>
+                                    <td  colspan="3"><a href="tabla1.php">Total:<?php echo $mostrar[0]?></a></td>
                                 </tr>
                             </tbody>
+                            <?php }?>
                             <thead>
                                     <tr class="titulot2">
                                     <th scope="col">CALIFICACIÓN</th>
@@ -57,32 +69,69 @@
 
                                     <th></th>
                                     </tr>
+
+                                    <?php
+                                        $traer ="SELECT COUNT(*) from respuestas WHERE rp=1";
+                                        $resultado =mysqli_query($conexion,$traer);
+    
+                                        while ($mostrar=mysqli_fetch_array($resultado)){ ?>
+                                   
                                 </thead>
                                 <tbody>
                                     <tr>
                                     <th scope="row">1</th>
-                                        <td colspan="2">0</td>
+                                        <td colspan="2"><a href="tabla2.php"><?php echo $mostrar[0]?></a></td>
                                     </tr>
+                                    <?php } ?>
+                                    <?php
+                                        $traer ="SELECT COUNT(*) from respuestas WHERE rp=2";
+                                        $resultado =mysqli_query($conexion,$traer);
+    
+                                        while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                                     <tr>
                                     <th scope="row">2</th>
-                                        <td colspan="2">0</td>
+                                        <td colspan="2"><a href="tabla3.php"><?php echo $mostrar[0]?></a></td>
                                     </tr>
+                                    <?php } ?>
+                                    <?php
+                                        $traer ="SELECT COUNT(*) from respuestas WHERE rp=3";
+                                        $resultado =mysqli_query($conexion,$traer);
+    
+                                        while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                                     <tr>
                                     <th scope="row">3</th>
-                                        <td colspan="2">0</td>
+                                        <td colspan="2"><a href="tabla4.php"><?php echo $mostrar[0]?></a></td>
                                     </tr>
+                                    <?php } ?>
+                                    <?php
+                                        $traer ="SELECT COUNT(*) from respuestas WHERE rp=4";
+                                        $resultado =mysqli_query($conexion,$traer);
+    
+                                        while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                                     <tr>
                                     <th scope="row">4</th>
-                                        <td colspan="2">0</td>
+                                        <td colspan="2"><a href="tabla5.php"><?php echo $mostrar[0]?></a></td>
                                         
                                     </tr>
+                                    <?php } ?>
+                                    <?php
+                                        $traer ="SELECT COUNT(*) from respuestas WHERE rp=5";
+                                        $resultado =mysqli_query($conexion,$traer);
+    
+                                        while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                                     <tr>
                                     <th scope="row">5</th>
-                                        <td colspan="2"><a href="tabla1.php">2</a></td>
+                                        <td colspan="2"><a href="tabla6.php"><?php echo $mostrar[0]?></a></td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody> 
                         </table>
                     </div>
+
+
+
+
+                    
                     <div class="col-md-4">
 
                     <table class="tabla1 table table-bordered">
@@ -90,12 +139,20 @@
                                 <tr class="titulot1">
                                     <th  colspan="3" scope="col">PREGUNTA 2 (Solución a su requerimiento)</th>
                                 </tr>
+
+                                <?php
+                                    $traer ="SELECT COUNT(*) FROM respuestas WHERE pq = 2";
+                                    $resultado =mysqli_query($conexion,$traer);
+
+                                    while ($mostrar=mysqli_fetch_array($resultado)){ ?>
+
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td  colspan="3"><a href="tabla5.php"> Total: 2</a></td>
+                                    <td  colspan="3"><a href="tabla7.php">Total:<?php echo $mostrar[0]?></a></td>
                                 </tr>
                             </tbody>
+                            <?php } ?>
                             <thead>
                                     <tr class="titulot2">
                                     <th scope="col">CALIFICACIÓN</th>
@@ -104,14 +161,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                                    $traer ="SELECT COUNT(*) from respuestas WHERE rp='SI'";
+                                    $resultado =mysqli_query($conexion,$traer);
+
+                                    while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                                     <tr>
                                     <th scope="row">SI</th>
-                                    <td colspan="2"><a href="tabla2.php">1</a></td>
+                                    <td colspan="2"><a href="tabla8.php"><?php echo $mostrar[0]?></a></td>
                                     </tr>
+                                    <?php } ?>
+                                    <?php
+                                    $traer ="SELECT COUNT(*) from respuestas WHERE rp='NO'";
+                                    $resultado =mysqli_query($conexion,$traer);
+
+                                    while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                                     <tr>
                                     <th scope="row">NO</th>
-                                    <td colspan="2"><a href="tabla3.php">1</a></td>
+                                    <td colspan="2"><a href="tabla9.php"><?php echo $mostrar[0]?></a></td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody> 
                         </table>
                     </div>

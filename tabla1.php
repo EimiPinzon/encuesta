@@ -1,6 +1,5 @@
 <?php
-include 'conexion.php'
-
+include 'conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +10,8 @@ include 'conexion.php'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <LINK REL=StyleSheet HREF="style.css" TYPE="text/css" MEDIA=screen>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+
     <title>Atención Recibida</title>
 </head>
 <body>
@@ -32,39 +33,36 @@ include 'conexion.php'
         </nav>
     </header>
     <main>
-        <div class="container  contat1">
+        <div class="container contat4">
         <br><div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <h1 class="titulo1">ATENCIÓN RECIBIDA</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8">
-                    <br><br><table action="reporte.php" method="POST" class="tabla2 table table-bordered" style="text-aling: center";>
+                <div class="col-md-7">
+                    <br><br><table class="tabla2 table table-bordered">
                         <thead>
                             <tr class="titulot4">
-                            <th scope="col" id="pAtencion" >PREGUNTA (Atención recibida)</th>
-                            <th scope="col" id="respuesta" >RESPUESTA</th>
-                            <th scope="col" id="ext" >EXT</th>
-                            <th scope="col" id="telefono" >TELEFONO</th>
-                            <th scope="col" id="fecha" >FECHA</th>
+                            <th scope="col">RESPUESTA</th>
+                            <th scope="col">EXT</th>
+                            <th scope="col">TELEFONO</th>
+                            <th scope="col">FECHA</th>
                             </tr>
                         </thead>
 
                             <?php
                                 
-
-                                $traer ="SELECT preguntas, respuestas, ext, telefono, fecha FROM respuestas WHERE id =1 OR id =3";
+                                $traer ="SELECT rp, ext, callerid, fecha FROM respuestas WHERE pq=1 ORDER BY rp ASC;";
                                 $resultado =mysqli_query($conexion,$traer);
 
                                 while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                             
                                 <tbody>
                                     <tr>
-                                    <td><?php echo $mostrar['preguntas']?></td>
-                                    <td><?php echo $mostrar['respuestas']?></td>
+                                    <td><?php echo $mostrar['rp']?></td>
                                     <td><?php echo $mostrar['ext']?></td>
-                                    <td><?php echo $mostrar['telefono']?></td>
+                                    <td><?php echo $mostrar['callerid']?></td>
                                     <td><?php echo $mostrar['fecha']?></td>
                                     </tr>
                                 </tbody>
@@ -74,7 +72,7 @@ include 'conexion.php'
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <button type="submit" class="btn btn-light"><a href="reporte.php">DESCARGAR</a></button>  
+                    <button type="button" class="btn btn-light"><a href="reporte1.php">DESCARGAR</a></button>  
                 </div>
             </div>
         </div>

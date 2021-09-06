@@ -51,16 +51,16 @@ include 'conexion.php';
 
                             <?php
                                 
-                                $traer ="SELECT respuestas, ext, telefono, fecha FROM respuestas WHERE id =1 OR id =3;";
+                                $traer ="SELECT rp, ext, callerid, fecha FROM respuestas WHERE rp=3";
                                 $resultado =mysqli_query($conexion,$traer);
 
                                 while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                             
                                 <tbody>
                                     <tr>
-                                    <td><?php echo $mostrar['respuestas']?></td>
+                                    <td><?php echo $mostrar['rp']?></td>
                                     <td><?php echo $mostrar['ext']?></td>
-                                    <td><?php echo $mostrar['telefono']?></td>
+                                    <td><?php echo $mostrar['callerid']?></td>
                                     <td><?php echo $mostrar['fecha']?></td>
                                     </tr>
                                 </tbody>

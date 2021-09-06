@@ -33,8 +33,11 @@ if ($filas){
     ?>
     <?php
     include("index.php");
+
+    echo "<script> alert('Usuario o contraseña incorrectos')
+    window.location = 'index.php';
+    </script>";
     ?>
-    <h4>Usuario o contraseña incorrectos</h4>
 
     <?php
 }

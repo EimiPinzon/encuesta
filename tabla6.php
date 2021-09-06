@@ -1,5 +1,6 @@
 <?php
-include 'conexion.php';
+include 'conexion.php'
+
 ?>
 
 <!DOCTYPE html>
@@ -31,33 +32,36 @@ include 'conexion.php';
         </nav>
     </header>
     <main>
-        <div class="container contat4">
+        <div class="container  contat1">
         <br><div class="row">
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <h1 class="titulo1">ATENCIÓN RECIBIDA</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-7">
-                    <br><br><table class="tabla2 table table-bordered">
+                <div class="col-md-8">
+                    <br><br><table action="reporte.php" method="POST" class="tabla2 table table-bordered" style="text-aling: center";>
                         <thead>
                             <tr class="titulot4">
-                            <th scope="col">RESPUESTA</th>
-                            <th scope="col">EXT</th>
-                            <th scope="col">TELEFONO</th>
-                            <th scope="col">FECHA</th>
+                            <th scope="col" id="pq" >PREGUNTA (Atención recibida)</th>
+                            <th scope="col" id="rp" >RESPUESTA</th>
+                            <th scope="col" id="ext" >EXT</th>
+                            <th scope="col" id="callerid" >TELEFONO</th>
+                            <th scope="col" id="fecha" >FECHA</th>
                             </tr>
                         </thead>
 
                             <?php
                                 
-                                $traer ="SELECT rp, ext, callerid, fecha FROM respuestas WHERE rp=2;";
+
+                                $traer ="SELECT pq, rp, ext, callerid, fecha FROM respuestas WHERE rp=5";
                                 $resultado =mysqli_query($conexion,$traer);
 
                                 while ($mostrar=mysqli_fetch_array($resultado)){ ?>
                             
                                 <tbody>
                                     <tr>
+                                    <td><?php echo $mostrar['pq']?></td>
                                     <td><?php echo $mostrar['rp']?></td>
                                     <td><?php echo $mostrar['ext']?></td>
                                     <td><?php echo $mostrar['callerid']?></td>
@@ -70,7 +74,7 @@ include 'conexion.php';
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <button type="button" class="btn btn-light"><a href="reporte3.php">DESCARGAR</a></button>  
+                    <button type="submit" class="btn btn-light"><a href="reporte6.php">DESCARGAR</a></button>  
                 </div>
             </div>
         </div>

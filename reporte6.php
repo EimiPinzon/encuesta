@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 
 
-$traer ="SELECT preguntas, respuestas, ext, telefono, fecha FROM respuestas WHERE id =1 OR id =3";
+$traer ="SELECT pq, rp, ext, callerid, fecha FROM respuestas WHERE rp=5";
 $resultado =mysqli_query($conexion,$traer);
 
 
@@ -28,10 +28,10 @@ $hojaActiva->setCellValue('E1', 'fecha');
 $fila = 2;
 
 while($row = $resultado->fetch_assoc()){
-    $hojaActiva->setCellValue('A'.$fila, $row['preguntas']);
-    $hojaActiva->setCellValue('B'.$fila, $row['respuestas']);
+    $hojaActiva->setCellValue('A'.$fila, $row['pq']);
+    $hojaActiva->setCellValue('B'.$fila, $row['rp']);
     $hojaActiva->setCellValue('C'.$fila, $row['ext']);
-    $hojaActiva->setCellValue('D'.$fila, $row['telefono']);
+    $hojaActiva->setCellValue('D'.$fila, $row['callerid']);
     $hojaActiva->setCellValue('E'.$fila, $row['fecha']);
     $fila++;
 
@@ -39,7 +39,7 @@ while($row = $resultado->fetch_assoc()){
 
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="AtencionRecibida.xlsx"');
+header('Content-Disposition: attachment;filename="respuestas-atencionrecibida5.xlsx"');
 header('Cache-Control: max-age=0');
 
 $writer = IOFactory::createWriter($excel, 'Xlsx');

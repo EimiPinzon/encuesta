@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 
 
-$traer ="SELECT rp, ext, callerid, fecha FROM respuestas WHERE rp=4;";
+$traer ="SELECT rp, ext, callerid, fecha FROM respuestas WHERE pq=2;";
 $resultado =mysqli_query($conexion,$traer);
 
 
@@ -37,7 +37,7 @@ while($row = $resultado->fetch_assoc()){
 
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="respuestas-atencionrecibida4.xlsx"');
+header('Content-Disposition: attachment;filename="respuestas-solucionrequerimiento.xlsx"');
 header('Cache-Control: max-age=0');
 
 $writer = IOFactory::createWriter($excel, 'Xlsx');

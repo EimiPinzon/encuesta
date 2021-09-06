@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 
 
-$traer ="SELECT preguntas, respuestas, ext, telefono, fecha FROM respuestas WHERE id =2";
+$traer ="SELECT rp, ext, callerid, fecha FROM respuestas WHERE rp=1;";
 $resultado =mysqli_query($conexion,$traer);
 
 
@@ -18,27 +18,26 @@ $excel = new Spreadsheet();
 $hojaActiva = $excel->getActiveSheet();
 $hojaActiva->setTitle("respuestas");
 
-$hojaActiva->setCellValue('A1', 'preguntas');
-$hojaActiva->setCellValue('B1', 'respuestas');
-$hojaActiva->setCellValue('C1', 'ext');
-$hojaActiva->setCellValue('D1', 'telefono');
-$hojaActiva->setCellValue('E1', 'fecha');
+
+$hojaActiva->setCellValue('A1', 'respuestas');
+$hojaActiva->setCellValue('B1', 'ext');
+$hojaActiva->setCellValue('C1', 'telefono');
+$hojaActiva->setCellValue('D1', 'fecha');
 
 $fila = 2;
 
 while($row = $resultado->fetch_assoc()){
-    $hojaActiva->setCellValue('A'.$fila, $row['preguntas']);
-    $hojaActiva->setCellValue('B'.$fila, $row['respuestas']);
-    $hojaActiva->setCellValue('C'.$fila, $row['ext']);
-    $hojaActiva->setCellValue('D'.$fila, $row['telefono']);
-    $hojaActiva->setCellValue('E'.$fila, $row['fecha']);
+    $hojaActiva->setCellValue('A'.$fila, $row['rp']);
+    $hojaActiva->setCellValue('B'.$fila, $row['ext']);
+    $hojaActiva->setCellValue('C'.$fila, $row['callerid']);
+    $hojaActiva->setCellValue('D'.$fila, $row['fecha']);
     $fila++;
 
 }
 
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="pregunta2-SI.xlsx"');
+header('Content-Disposition: attachment;filename="respuestas-atencionrecibida1.xlsx"');
 header('Cache-Control: max-age=0');
 
 $writer = IOFactory::createWriter($excel, 'Xlsx');
